@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+
+<html lang="pt" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>API Reference &#8212; Documentação portefolio_AASB 0.1</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=6e1fffae"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/translations.js?v=beaedd51"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Pesquisar" href="search.html" />
+    <link rel="prev" title="Bioinf documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">¶</a></h1>
+<section id="module-bioinf.sequencias">
+<span id="bioinf-sequencias"></span><h2>bioinf.sequencias<a class="headerlink" href="#module-bioinf.sequencias" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.sequencias.dna_counter">
+<span class="sig-prename descclassname"><span class="pre">bioinf.sequencias.</span></span><span class="sig-name descname"><span class="pre">dna_counter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dna</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/sequencias.html#dna_counter"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.sequencias.dna_counter" title="Link to this definition">¶</a></dt>
+<dd><p>Conta a ocorrência de cada nucleotídeo em uma sequência de DNA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dna</strong> (<em>str</em>) – Sequência de DNA a ser analisada.</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Dicionário com o número de ocorrências de cada nucleotídeo.</dt><dd><p>As chaves são “A”, “G”, “C” e “T”.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, int]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dna_counter</span><span class="p">(</span><span class="s2">&quot;AGCTAGC&quot;</span><span class="p">)</span>
+<span class="go">{&#39;A&#39;: 2, &#39;G&#39;: 2, &#39;C&#39;: 2, &#39;T&#39;: 1}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dna_counter</span><span class="p">(</span><span class="s2">&quot;TTTAAA&quot;</span><span class="p">)</span>
+<span class="go">{&#39;A&#39;: 3, &#39;G&#39;: 0, &#39;C&#39;: 0, &#39;T&#39;: 3}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.sequencias.dna_to_rna">
+<span class="sig-prename descclassname"><span class="pre">bioinf.sequencias.</span></span><span class="sig-name descname"><span class="pre">dna_to_rna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dna</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/sequencias.html#dna_to_rna"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.sequencias.dna_to_rna" title="Link to this definition">¶</a></dt>
+<dd><p>Converte uma sequência de DNA em RNA complementar.</p>
+<dl class="simple">
+<dt>A conversão segue as regras:</dt><dd><p>A -&gt; U
+T -&gt; A
+G -&gt; C
+C -&gt; G</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dna</strong> (<em>str</em>) – Sequência de DNA a ser transcrita.</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sequência de RNA resultante da transcrição.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dna_to_rna</span><span class="p">(</span><span class="s2">&quot;ATGC&quot;</span><span class="p">)</span>
+<span class="go">&#39;UACG&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dna_to_rna</span><span class="p">(</span><span class="s2">&quot;GGCTA&quot;</span><span class="p">)</span>
+<span class="go">&#39;CCGAU&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.sequencias.identificar_sequencia">
+<span class="sig-prename descclassname"><span class="pre">bioinf.sequencias.</span></span><span class="sig-name descname"><span class="pre">identificar_sequencia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/sequencias.html#identificar_sequencia"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.sequencias.identificar_sequencia" title="Link to this definition">¶</a></dt>
+<dd><p>Identifica se a sequência é DNA, RNA ou proteína.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seq</strong> (<em>str</em>) – Sequência biológica.</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>«DNA», «RNA», «AMINO» ou «ERRO» se não for possível identificar.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">identificar_sequencia</span><span class="p">(</span><span class="s2">&quot;ACGT&quot;</span><span class="p">)</span>
+<span class="go">&#39;DNA&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.sequencias.is_dna">
+<span class="sig-prename descclassname"><span class="pre">bioinf.sequencias.</span></span><span class="sig-name descname"><span class="pre">is_dna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dna</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/sequencias.html#is_dna"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.sequencias.is_dna" title="Link to this definition">¶</a></dt>
+<dd><p>Verifica se uma sequência é DNA válida (contém apenas A, G, C, T).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dna</strong> (<em>str</em>) – Sequência a ser verificada.</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Prints:</dt><dd><p>«Sequência válida» se todos os caracteres forem A, G, C ou T.
+«Sequência inválida» caso contrário.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">is_dna</span><span class="p">(</span><span class="s2">&quot;AGCTAG&quot;</span><span class="p">)</span>
+<span class="go">Sequência válida</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_dna</span><span class="p">(</span><span class="s2">&quot;AGCTX&quot;</span><span class="p">)</span>
+<span class="go">Sequência inválida</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.sequencias.reverse_complement">
+<span class="sig-prename descclassname"><span class="pre">bioinf.sequencias.</span></span><span class="sig-name descname"><span class="pre">reverse_complement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dna</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/sequencias.html#reverse_complement"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.sequencias.reverse_complement" title="Link to this definition">¶</a></dt>
+<dd><p>Retorna o complemento reverso de uma sequência de DNA.</p>
+<p>O complemento reverso é obtido invertendo a sequência
+e trocando cada nucleotídeo pelo seu complementar:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">&lt;-&gt;</span> <span class="n">T</span>
+<span class="n">G</span> <span class="o">&lt;-&gt;</span> <span class="n">C</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dna</strong> (<em>str</em>) – Sequência de DNA a ser convertida.</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sequência complementar reversa do DNA.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">reverse_complement</span><span class="p">(</span><span class="s2">&quot;ATGC&quot;</span><span class="p">)</span>
+<span class="go">&#39;GCAT&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reverse_complement</span><span class="p">(</span><span class="s2">&quot;GGCTA&quot;</span><span class="p">)</span>
+<span class="go">&#39;TAGCC&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-bioinf.motifs">
+<span id="bioinf-motifs"></span><h2>bioinf.motifs<a class="headerlink" href="#module-bioinf.motifs" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.motifs.best_subsequence">
+<span class="sig-prename descclassname"><span class="pre">bioinf.motifs.</span></span><span class="sig-name descname"><span class="pre">best_subsequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pssm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/motifs.html#best_subsequence"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.motifs.best_subsequence" title="Link to this definition">¶</a></dt>
+<dd><p>Encontra a subsequência (window) com maior score segundo a PSSM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pssm</strong> (<em>list</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>float</em><em>]</em><em>]</em>) – PSSM.</p></li>
+<li><p><strong>seq</strong> (<em>str</em>) – Sequência onde procurar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>(melhor_subseq, posição_inicial_0based, melhor_score)</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[str, int, float]</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Se a sequência for mais curta do que o comprimento do motivo (len(pssm)).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.motifs.build_pwm">
+<span class="sig-prename descclassname"><span class="pre">bioinf.motifs.</span></span><span class="sig-name descname"><span class="pre">build_pwm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kmers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphabet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ACGT'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/motifs.html#build_pwm"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.motifs.build_pwm" title="Link to this definition">¶</a></dt>
+<dd><p>Constrói uma PWM (Position Weight Matrix) a partir de uma lista de kmers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kmers</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Lista de sequências de igual comprimento (k).</p></li>
+<li><p><strong>alphabet</strong> (<em>str</em>) – Alfabeto permitido (padrão «ACGT»).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>PWM como lista de colunas, cada coluna {base: prob}.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[dict[str, float]]</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Se kmers estiver vazio, se k=0, se comprimentos diferirem,
+    ou se existirem símbolos fora do alfabeto.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.motifs.digest_dna">
+<span class="sig-prename descclassname"><span class="pre">bioinf.motifs.</span></span><span class="sig-name descname"><span class="pre">digest_dna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restriction_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/motifs.html#digest_dna"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.motifs.digest_dna" title="Link to this definition">¶</a></dt>
+<dd><p>Simula a digestão de uma sequência de DNA por uma enzima de restrição.</p>
+<p>A posição de corte é indicada por “^” dentro do sítio.
+O sítio pode conter ambiguidades IUPAC (ex.: W, N, etc.).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq</strong> (<em>str</em>) – Sequência de DNA.</p></li>
+<li><p><strong>restriction_site</strong> (<em>str</em>) – Sítio com “^” (ex.: «G^AATTC», «CC^WGG»).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>cuts: posições de corte (base 0) na sequência</p></li>
+<li><p>frags: lista de fragmentos resultantes (em ordem)</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[list[int], list[str]]</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Se faltar “^”, se o motivo ficar vazio, ou se a posição de corte for inválida.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>digest_dna(«GAATTCC», «G^AATTC») -&gt; ([1], [«G», «AATTCC»])</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.motifs.find_overlapping">
+<span class="sig-prename descclassname"><span class="pre">bioinf.motifs.</span></span><span class="sig-name descname"><span class="pre">find_overlapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pat_iupac</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/motifs.html#find_overlapping"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.motifs.find_overlapping" title="Link to this definition">¶</a></dt>
+<dd><p>Encontra todas as ocorrências (com sobreposição) de um padrão IUPAC numa sequência.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq</strong> (<em>str</em>) – Sequência alvo (DNA).</p></li>
+<li><p><strong>pat_iupac</strong> (<em>str</em>) – Padrão IUPAC (DNA).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista de posições (base 0) onde começa cada correspondência.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int]</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Se o padrão IUPAC estiver vazio ou inválido.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>find_overlapping(«AAAA», «AA») -&gt; [0, 1, 2]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.motifs.find_prosite">
+<span class="sig-prename descclassname"><span class="pre">bioinf.motifs.</span></span><span class="sig-name descname"><span class="pre">find_prosite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prosite</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/motifs.html#find_prosite"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.motifs.find_prosite" title="Link to this definition">¶</a></dt>
+<dd><p>Encontra todas as ocorrências (com sobreposição) de um padrão PROSITE numa sequência.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq</strong> (<em>str</em>) – Sequência alvo (proteína, tipicamente).</p></li>
+<li><p><strong>prosite</strong> (<em>str</em>) – Padrão PROSITE (mínimo).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista de posições (base 0) onde começa cada correspondência.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int]</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Se o PROSITE estiver vazio.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.motifs.iupac_to_regex">
+<span class="sig-prename descclassname"><span class="pre">bioinf.motifs.</span></span><span class="sig-name descname"><span class="pre">iupac_to_regex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/motifs.html#iupac_to_regex"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.motifs.iupac_to_regex" title="Link to this definition">¶</a></dt>
+<dd><p>Converte um padrão IUPAC (DNA) para uma expressão regular (regex).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pat</strong> (<em>str</em>) – Padrão IUPAC (ex.: «CCWGG», «ATGN»).</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Regex equivalente (ex.: «CC[AT]GG»).</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Se o padrão estiver vazio ou contiver símbolos IUPAC inválidos.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>iupac_to_regex(«CCWGG») -&gt; «CC[AT]GG»</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.motifs.prosite_to_regex">
+<span class="sig-prename descclassname"><span class="pre">bioinf.motifs.</span></span><span class="sig-name descname"><span class="pre">prosite_to_regex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prosite</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/motifs.html#prosite_to_regex"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.motifs.prosite_to_regex" title="Link to this definition">¶</a></dt>
+<dd><p>Converte um padrão PROSITE (versão mínima) para regex.</p>
+<p>Suporta o básico:
+- Remove “-” (separadores)
+- “x” ou “X” -&gt; “.” (qualquer aminoácido)
+- “{ABC}” -&gt; “[^ABC]” (qualquer exceto ABC)
+- “(n)” -&gt; “{n}”
+- “(n,m)” -&gt; “{n,m}”</p>
+<dl class="simple">
+<dt>Nota:</dt><dd><p>Isto NÃO implementa PROSITE completo (ex.: âncoras “&lt;” “&gt;”, alguns detalhes avançados).</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>prosite</strong> (<em>str</em>) – Padrão PROSITE (ex.: «C-x(2)-C»).</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Regex equivalente.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Se o padrão estiver vazio.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>prosite_to_regex(«C-x(2)-C») -&gt; «C.{2}C»</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.motifs.pssm_from_pwm">
+<span class="sig-prename descclassname"><span class="pre">bioinf.motifs.</span></span><span class="sig-name descname"><span class="pre">pssm_from_pwm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pwm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphabet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ACGT'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/motifs.html#pssm_from_pwm"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.motifs.pssm_from_pwm" title="Link to this definition">¶</a></dt>
+<dd><p>Converte PWM em PSSM usando log2(p / bg), com bg uniforme (<cite>1/|alphabet|</cite>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pwm</strong> (<em>list</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>float</em><em>]</em><em>]</em>) – PWM.</p></li>
+<li><p><strong>alphabet</strong> (<em>str</em>) – Alfabeto.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>PSSM (scores log2).</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[dict[str, float]]</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Se p=0, o score fica -inf.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.motifs.score_kmer">
+<span class="sig-prename descclassname"><span class="pre">bioinf.motifs.</span></span><span class="sig-name descname"><span class="pre">score_kmer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pssm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kmer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/motifs.html#score_kmer"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.motifs.score_kmer" title="Link to this definition">¶</a></dt>
+<dd><p>Calcula o score de um kmer dado uma PSSM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pssm</strong> (<em>list</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>float</em><em>]</em><em>]</em>) – PSSM.</p></li>
+<li><p><strong>kmer</strong> (<em>str</em>) – Sequência com comprimento igual ao número de colunas da PSSM.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Score total.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Se o comprimento do kmer não corresponder à PSSM.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-bioinf.alinhamento">
+<span id="bioinf-alinhamento"></span><h2>bioinf.alinhamento<a class="headerlink" href="#module-bioinf.alinhamento" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.alinhamento_progressivo">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">alinhamento_progressivo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seqs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#alinhamento_progressivo"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.alinhamento_progressivo" title="Link to this definition">¶</a></dt>
+<dd><p>Realiza um alinhamento múltiplo progressivo de sequências.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seqs</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Lista de sequências.</p></li>
+<li><p><strong>subst</strong> (<em>dict</em>) – Matriz de substituição.</p></li>
+<li><p><strong>space</strong> (<em>int</em><em>, </em><em>optional</em>) – Penalidade de gap. Default é -4.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista de sequências alinhadas.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seqs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ACG&quot;</span><span class="p">,</span> <span class="s2">&quot;AC&quot;</span><span class="p">,</span> <span class="s2">&quot;AG&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subst</span> <span class="o">=</span> <span class="n">matriz_substituição_dna</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">alinhamento_progressivo</span><span class="p">(</span><span class="n">seqs</span><span class="p">,</span> <span class="n">subst</span><span class="p">)</span>
+<span class="go">[&#39;ACG&#39;, &#39;A-C&#39;, &#39;A-G&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.alinhar_consenso">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">alinhar_consenso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alinhamento</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nova_seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#alinhar_consenso"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.alinhar_consenso" title="Link to this definition">¶</a></dt>
+<dd><p>Alinha uma nova sequência ao consenso existente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alinhamento</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Lista de sequências alinhadas.</p></li>
+<li><p><strong>nova_seq</strong> (<em>str</em>) – Nova sequência a ser alinhada.</p></li>
+<li><p><strong>subst</strong> (<em>dict</em>) – Matriz de substituição.</p></li>
+<li><p><strong>space</strong> (<em>int</em>) – Penalidade de gap.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Novo alinhamento múltiplo.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">subst</span> <span class="o">=</span> <span class="n">matriz_substituição_dna</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">alinhar_consenso</span><span class="p">([</span><span class="s2">&quot;ACG&quot;</span><span class="p">,</span> <span class="s2">&quot;A-C&quot;</span><span class="p">],</span> <span class="s2">&quot;AG&quot;</span><span class="p">,</span> <span class="n">subst</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">[&#39;ACG&#39;, &#39;A-C&#39;, &#39;A-G&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.alinhar_par">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">alinhar_par</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#alinhar_par"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.alinhar_par" title="Link to this definition">¶</a></dt>
+<dd><p>Realiza um alinhamento simples entre duas sequências.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq1</strong> (<em>str</em>) – Primeira sequência.</p></li>
+<li><p><strong>seq2</strong> (<em>str</em>) – Segunda sequência.</p></li>
+<li><p><strong>subst</strong> (<em>dict</em>) – Matriz de substituição.</p></li>
+<li><p><strong>space</strong> (<em>int</em>) – Penalidade de gap.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sequências alinhadas.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[str, str]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">subst</span> <span class="o">=</span> <span class="n">matriz_substituição_dna</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">alinhar_par</span><span class="p">(</span><span class="s2">&quot;ACG&quot;</span><span class="p">,</span> <span class="s2">&quot;AG&quot;</span><span class="p">,</span> <span class="n">subst</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">(&#39;ACG&#39;, &#39;A-G&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.consenso">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">consenso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alinhamento</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#consenso"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.consenso" title="Link to this definition">¶</a></dt>
+<dd><p>Calcula a sequência consenso de um alinhamento múltiplo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>alinhamento</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Lista de sequências alinhadas.</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sequência consenso.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">consenso</span><span class="p">([</span><span class="s2">&quot;ACG&quot;</span><span class="p">,</span> <span class="s2">&quot;A-G&quot;</span><span class="p">,</span> <span class="s2">&quot;ACG&quot;</span><span class="p">])</span>
+<span class="go">&#39;ACG&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.dot_plot_janela">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">dot_plot_janela</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stringency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#dot_plot_janela"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.dot_plot_janela" title="Link to this definition">¶</a></dt>
+<dd><p>Cria dot plot usando janela deslizante e stringency mínima.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq1</strong> (<em>str</em>) – Primeira sequência.</p></li>
+<li><p><strong>seq2</strong> (<em>str</em>) – Segunda sequência.</p></li>
+<li><p><strong>window</strong> (<em>int</em>) – Tamanho da janela.</p></li>
+<li><p><strong>stringency</strong> (<em>int</em>) – Número mínimo de matches na janela.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Matriz de 0s e 1s indicando matches.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[list[int]]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dot_plot_janela</span><span class="p">(</span><span class="s2">&quot;ACGT&quot;</span><span class="p">,</span> <span class="s2">&quot;ACGA&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">[[1, 0], [0, 0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.escolha_de_matriz">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">escolha_de_matriz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mismatch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#escolha_de_matriz"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.escolha_de_matriz" title="Link to this definition">¶</a></dt>
+<dd><p>Determina a matriz de substituição mais adequada (DNA ou proteína).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq1</strong> (<em>str</em>) – Primeira sequência.</p></li>
+<li><p><strong>seq2</strong> (<em>str</em>) – Segunda sequência.</p></li>
+<li><p><strong>match</strong> (<em>int</em>) – Pontuação para match (DNA).</p></li>
+<li><p><strong>mismatch</strong> (<em>int</em>) – Pontuação para mismatch (DNA).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Matriz de substituição adequada.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Se os tipos das sequências forem incompatíveis.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">escolha_de_matriz</span><span class="p">(</span><span class="s2">&quot;ACG&quot;</span><span class="p">,</span> <span class="s2">&quot;AGT&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">{&#39;A&#39;: {&#39;A&#39;: 2, &#39;G&#39;: -1, &#39;C&#39;: -1, &#39;T&#39;: -1}, ...}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.identificar_sequencia">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">identificar_sequencia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#identificar_sequencia"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.identificar_sequencia" title="Link to this definition">¶</a></dt>
+<dd><p>Identifica se a sequência é DNA, RNA ou proteína.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seq</strong> (<em>str</em>) – Sequência biológica.</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>«DNA», «RNA», «AMINO» ou «ERRO» se não for possível identificar.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">identificar_sequencia</span><span class="p">(</span><span class="s2">&quot;ACGT&quot;</span><span class="p">)</span>
+<span class="go">&#39;DNA&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.imprimir_dot_plot">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">imprimir_dot_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stringency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#imprimir_dot_plot"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.imprimir_dot_plot" title="Link to this definition">¶</a></dt>
+<dd><p>Imprime um dot plot com sliding window e stringency,
+mostrando explicitamente as janelas de ambas as
+sequências nos eixos e alinhando os pontos corretamente.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.imprimir_grid">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">imprimir_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#imprimir_grid"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.imprimir_grid" title="Link to this definition">¶</a></dt>
+<dd><p>Imprime o grid de scores e a matriz de setas de forma legível.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grid</strong> (<em>list</em><em>[</em><em>list</em><em>[</em><em>str</em><em>|</em><em>int</em><em>]</em><em>]</em>) – Grid de scores com seq2 na primeira linha e seq1 na primeira coluna.</p></li>
+<li><p><strong>setas</strong> (<em>list</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Matriz de setas (»↖», «↑», «←», «STOP») correspondente ao grid.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">montar_grid</span><span class="p">(</span><span class="n">matriz</span><span class="p">,</span> <span class="s2">&quot;AC&quot;</span><span class="p">,</span> <span class="s2">&quot;GT&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">imprimir_grid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">setas</span><span class="p">)</span>
+<span class="go">Matriz de Scores:</span>
+<span class="go">[&#39; &#39;, &#39;G&#39;, &#39;T&#39;]</span>
+<span class="go">[&#39;A&#39;, -2, -4]</span>
+<span class="go">[&#39;C&#39;, 0, 0]</span>
+</pre></div>
+</div>
+<p>Matriz de Setas:
+[“”, “←”, “←”]
+[”↑”, “↖”, “↖”]
+[”↑”, “↑”, “↖”]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.janela_match">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">janela_match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#janela_match"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.janela_match" title="Link to this definition">¶</a></dt>
+<dd><p>Compara duas janelas de comprimento <cite>window</cite> nas sequências.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq1</strong> (<em>str</em>) – Primeira sequência.</p></li>
+<li><p><strong>seq2</strong> (<em>str</em>) – Segunda sequência.</p></li>
+<li><p><strong>pos1</strong> (<em>int</em>) – Posição inicial na primeira sequência.</p></li>
+<li><p><strong>pos2</strong> (<em>int</em>) – Posição inicial na segunda sequência.</p></li>
+<li><p><strong>window</strong> (<em>int</em>) – Tamanho da janela a comparar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Número de posições iguais dentro da janela.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">janela_match</span><span class="p">(</span><span class="s2">&quot;ACGT&quot;</span><span class="p">,</span> <span class="s2">&quot;ACGA&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.matriz_de_zeros">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">matriz_de_zeros</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#matriz_de_zeros"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.matriz_de_zeros" title="Link to this definition">¶</a></dt>
+<dd><p>Inicia uma matriz de zeros com tamanho len(seq1)+1 x len(seq2)+1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq1</strong> (<em>str</em>) – Primeira sequência.</p></li>
+<li><p><strong>seq2</strong> (<em>str</em>) – Segunda sequência.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Matriz preenchida com zeros.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[list[int]]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matriz_de_zeros</span><span class="p">(</span><span class="s2">&quot;AC&quot;</span><span class="p">,</span> <span class="s2">&quot;GT&quot;</span><span class="p">)</span>
+<span class="go">[[0, 0, 0], [0, 0, 0], [0, 0, 0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.matriz_substituicao_dna">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">matriz_substituição_dna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">match</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mismatch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#matriz_substituição_dna"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.matriz_substituicao_dna" title="Link to this definition">¶</a></dt>
+<dd><p>Cria uma matriz de substituição para DNA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>match</strong> (<em>int</em>) – Pontuação para match.</p></li>
+<li><p><strong>mismatch</strong> (<em>int</em>) – Pontuação para mismatch.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Matriz de substituição.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, dict[str, int]]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matriz_substituição_dna</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="s2">&quot;A&quot;</span><span class="p">][</span><span class="s2">&quot;C&quot;</span><span class="p">]</span>
+<span class="go">-1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.matriz_substituicao_proteina">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">matriz_substituição_proteína</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#matriz_substituição_proteína"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.matriz_substituicao_proteina" title="Link to this definition">¶</a></dt>
+<dd><p>Cria a matriz de substituição BLOSUM62 para proteínas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Matriz de substituição para cada par de aminoácidos.</p>
+</dd>
+<dt class="field-even">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict[tuple[str, str], int]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">subst</span> <span class="o">=</span> <span class="n">matriz_substituição_proteína</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subst</span><span class="p">[(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)]</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.melhor_movimento">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">melhor_movimento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cima</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">esquerda</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/bioinf/alinhamento.html#melhor_movimento"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.melhor_movimento" title="Link to this definition">¶</a></dt>
+<dd><p>Determina o melhor movimento entre diagonal, cima ou esquerda.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>diag</strong> (<em>int</em>) – Score da diagonal.</p></li>
+<li><p><strong>cima</strong> (<em>int</em>) – Score de cima.</p></li>
+<li><p><strong>esquerda</strong> (<em>int</em>) – Score da esquerda.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Melhor score e seta correspondente (»↖», «↑», «←»).</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[int, str]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">melhor_movimento</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">(3, &#39;↖&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.montar_grid">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">montar_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matriz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#montar_grid"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.montar_grid" title="Link to this definition">¶</a></dt>
+<dd><p>Monta um grid de scores com a primeira linha e coluna mostrando as sequências.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matriz</strong> (<em>list</em><em>[</em><em>list</em><em>[</em><em>int</em><em>]</em><em>]</em>) – Matriz de scores (inicial ou calculada).</p></li>
+<li><p><strong>seq1</strong> (<em>str</em>) – Primeira sequência (linha).</p></li>
+<li><p><strong>seq2</strong> (<em>str</em>) – Segunda sequência (coluna).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Grid de scores com seq2 na primeira linha e seq1 na primeira coluna.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[list[str|int]]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matriz</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">montar_grid</span><span class="p">(</span><span class="n">matriz</span><span class="p">,</span> <span class="s2">&quot;AC&quot;</span><span class="p">,</span> <span class="s2">&quot;GT&quot;</span><span class="p">)</span>
+<span class="go">[[&#39; &#39;, &#39;G&#39;, &#39;T&#39;], [&#39;A&#39;, -2, -4], [&#39;C&#39;, 0, 0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.needleman_wunsch">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">needleman_wunsch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mismatch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#needleman_wunsch"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.needleman_wunsch" title="Link to this definition">¶</a></dt>
+<dd><p>Realiza um alinhamento global usando o algoritmo Needleman-Wunsch.</p>
+<p>Imprime a matriz de scores e a matriz de setas em formato legível (grid).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq1</strong> (<em>str</em>) – Primeira sequência.</p></li>
+<li><p><strong>seq2</strong> (<em>str</em>) – Segunda sequência.</p></li>
+<li><p><strong>match</strong> (<em>int</em><em>, </em><em>optional</em>) – Pontuação para match. Default é 2.</p></li>
+<li><p><strong>mismatch</strong> (<em>int</em><em>, </em><em>optional</em>) – Pontuação para mismatch. Default é -3.</p></li>
+<li><p><strong>space</strong> (<em>int</em><em>, </em><em>optional</em>) – Penalidade de gap. Default é -4.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>grid_scores: Matriz de scores com a primeira linha e coluna mostrando seq2 e seq1.</p></li>
+<li><p>setas: Matriz de setas (»↖», «↑», «←») indicando o caminho do alinhamento.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[list[list[str|int]], list[list[str]]]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="p">,</span> <span class="n">setas</span> <span class="o">=</span> <span class="n">needleman_wunsch</span><span class="p">(</span><span class="s2">&quot;ACG&quot;</span><span class="p">,</span> <span class="s2">&quot;AG&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.primeira_linha_e_coluna">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">primeira_linha_e_coluna</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#primeira_linha_e_coluna"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.primeira_linha_e_coluna" title="Link to this definition">¶</a></dt>
+<dd><p>Atribui os valores à primeira linha e à primeira coluna do alinhamento global.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq1</strong> (<em>str</em>) – Primeira sequência.</p></li>
+<li><p><strong>seq2</strong> (<em>str</em>) – Segunda sequência.</p></li>
+<li><p><strong>space</strong> (<em>int</em>) – Penalidade de gap.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>(matriz_scores, matriz_setas)</dt><dd><ul class="simple">
+<li><p>matriz_scores: lista de listas com scores iniciais.</p></li>
+<li><p>matriz_setas: lista de listas com setas (»↑», «←») na primeira linha e coluna.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matriz</span><span class="p">,</span> <span class="n">setas</span> <span class="o">=</span> <span class="n">primeira_linha_e_coluna</span><span class="p">(</span><span class="s2">&quot;AC&quot;</span><span class="p">,</span> <span class="s2">&quot;GT&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">matriz</span>
+<span class="go">[[0, -2, -4], [-2, 0, 0], [-4, 0, 0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.reconstruir_alinhamento">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">reconstruir_alinhamento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#reconstruir_alinhamento"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.reconstruir_alinhamento" title="Link to this definition">¶</a></dt>
+<dd><p>Reconstrói o alinhamento final a partir da matriz de setas.</p>
+<p>Funciona tanto para Needleman-Wunsch quanto para Smith-Waterman.
+Para Smith-Waterman, o caminho termina ao encontrar «STOP».</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setas</strong> (<em>list</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Matriz de setas (»↖», «↑», «←», «STOP»).</p></li>
+<li><p><strong>seq1</strong> (<em>str</em>) – Primeira sequência.</p></li>
+<li><p><strong>seq2</strong> (<em>str</em>) – Segunda sequência.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sequências alinhadas.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[str, str]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="p">,</span> <span class="n">setas</span> <span class="o">=</span> <span class="n">needleman_wunsch</span><span class="p">(</span><span class="s2">&quot;ACG&quot;</span><span class="p">,</span> <span class="s2">&quot;AG&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reconstruir_alinhamento</span><span class="p">(</span><span class="n">setas</span><span class="p">,</span> <span class="s2">&quot;ACG&quot;</span><span class="p">,</span> <span class="s2">&quot;AG&quot;</span><span class="p">)</span>
+<span class="go">(&#39;ACG&#39;, &#39;A-G&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.alinhamento.smith_waterman">
+<span class="sig-prename descclassname"><span class="pre">bioinf.alinhamento.</span></span><span class="sig-name descname"><span class="pre">smith_waterman</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mismatch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/alinhamento.html#smith_waterman"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.alinhamento.smith_waterman" title="Link to this definition">¶</a></dt>
+<dd><p>Realiza um alinhamento local usando o algoritmo Smith-Waterman.</p>
+<p>Imprime a matriz de scores e a matriz de setas em formato legível (grid).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq1</strong> (<em>str</em>) – Primeira sequência.</p></li>
+<li><p><strong>seq2</strong> (<em>str</em>) – Segunda sequência.</p></li>
+<li><p><strong>match</strong> (<em>int</em><em>, </em><em>optional</em>) – Pontuação para match. Default é 2.</p></li>
+<li><p><strong>mismatch</strong> (<em>int</em><em>, </em><em>optional</em>) – Pontuação para mismatch. Default é -3.</p></li>
+<li><p><strong>space</strong> (<em>int</em><em>, </em><em>optional</em>) – Penalidade de gap. Default é -4.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>grid_scores: Matriz de scores com a primeira linha e coluna mostrando seq2 e seq1.</p></li>
+<li><p>setas: Matriz de setas (»↖», «↑», «←», «STOP») indicando o caminho do alinhamento.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[list[list[str|int]], list[list[str]]]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="p">,</span> <span class="n">setas</span> <span class="o">=</span> <span class="n">smith_waterman</span><span class="p">(</span><span class="s2">&quot;ACG&quot;</span><span class="p">,</span> <span class="s2">&quot;AG&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-bioinf.blast">
+<span id="bioinf-blast"></span><h2>bioinf.blast<a class="headerlink" href="#module-bioinf.blast" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.blast.alinhamento_pro">
+<span class="sig-prename descclassname"><span class="pre">bioinf.blast.</span></span><span class="sig-name descname"><span class="pre">alinhamento_pro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/blast.html#alinhamento_pro"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.blast.alinhamento_pro" title="Link to this definition">¶</a></dt>
+<dd><p>Executa um BLAST simplificado e devolve o melhor alinhamento sem gaps.</p>
+<p>Processo:
+1) Gera seeds (k-mers) comuns entre query e subject.
+2) Para cada seed (i, j), estende para a esquerda/direita com match exato.
+3) Seleciona o alinhamento com maior comprimento.</p>
+<p>Se não houver seeds possíveis (sequências curtas) ou não existirem hits,
+devolve <cite>None</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – Sequência query.</p></li>
+<li><p><strong>subject</strong> (<em>str</em>) – Sequência subject.</p></li>
+<li><p><strong>k</strong> (<em>int</em><em>, </em><em>optional</em>) – Tamanho do seed (k-mer). Por omissão é 3.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dicionário com o melhor alinhamento, ou <cite>None</cite> se
+não houver alinhamento. O dicionário contém:
+- «query_start» (int): índice inicial na query
+- «subject_start» (int): índice inicial no subject
+- «tamanho» (int): comprimento do alinhamento
+- «alinhado_q» (str): segmento alinhado da query
+- «alinhado_s» (str): segmento alinhado do subject</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, object] | None</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">alinhamento_pro</span><span class="p">(</span><span class="s2">&quot;ACGT&quot;</span><span class="p">,</span> <span class="s2">&quot;TACGTG&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">{&#39;query_start&#39;: 0, &#39;subject_start&#39;: 1, &#39;tamanho&#39;: 4, &#39;alinhado_q&#39;: &#39;ACGT&#39;, &#39;alinhado_s&#39;: &#39;ACGT&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.blast.busca_pares">
+<span class="sig-prename descclassname"><span class="pre">bioinf.blast.</span></span><span class="sig-name descname"><span class="pre">busca_pares</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/blast.html#busca_pares"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.blast.busca_pares" title="Link to this definition">¶</a></dt>
+<dd><p>Encontra todos os hits (seeds) entre <cite>query</cite> e <cite>subject</cite> com base em k-mers.</p>
+<p>Um hit é um par (i, j) onde:
+- <cite>i</cite> é a posição inicial do k-mer na <cite>query</cite>
+- <cite>j</cite> é a posição inicial do mesmo k-mer no <cite>subject</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – Sequência query (onde é construído o índice de k-mers).</p></li>
+<li><p><strong>subject</strong> (<em>str</em>) – Sequência subject (onde são procurados os k-mers).</p></li>
+<li><p><strong>k</strong> (<em>int</em><em>, </em><em>optional</em>) – Tamanho do k-mer (seed). Por omissão é 3.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista de pares (i, j) com todos os hits encontrados.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[tuple[int, int]]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">busca_pares</span><span class="p">(</span><span class="s2">&quot;ATAT&quot;</span><span class="p">,</span> <span class="s2">&quot;GATAT&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">[(0, 1), (2, 1), (1, 2), (0, 3), (2, 3)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.blast.estender_alem">
+<span class="sig-prename descclassname"><span class="pre">bioinf.blast.</span></span><span class="sig-name descname"><span class="pre">estender_alem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/blast.html#estender_alem"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.blast.estender_alem" title="Link to this definition">¶</a></dt>
+<dd><p>Estende um seed (i, j) para a esquerda e para a direita (sem gaps, match exato).</p>
+<p>A extensão tenta aumentar o alinhamento enquanto os caracteres forem iguais
+em ambas as sequências. O seed inicial tem comprimento <cite>k</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – Sequência query.</p></li>
+<li><p><strong>subject</strong> (<em>str</em>) – Sequência subject.</p></li>
+<li><p><strong>i</strong> (<em>int</em>) – Posição inicial do seed na query.</p></li>
+<li><p><strong>j</strong> (<em>int</em>) – Posição inicial do seed no subject.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – Comprimento do seed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Triplo (start_i, start_j, tamanho), onde:
+- start_i (int): Início do alinhamento na query
+- start_j (int): Início do alinhamento no subject
+- tamanho (int): Comprimento total do alinhamento estendido</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[int, int, int]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">estender_alem</span><span class="p">(</span><span class="s2">&quot;ACGT&quot;</span><span class="p">,</span> <span class="s2">&quot;TACGTG&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">(0, 1, 4)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.blast.novo_indice">
+<span class="sig-prename descclassname"><span class="pre">bioinf.blast.</span></span><span class="sig-name descname"><span class="pre">novo_indice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequencia</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/blast.html#novo_indice"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.blast.novo_indice" title="Link to this definition">¶</a></dt>
+<dd><p>Cria um índice de k-mers (substrings de tamanho k) de uma sequência.</p>
+<p>O índice devolve, para cada k-mer, a lista das posições (0-based) onde esse
+k-mer começa na sequência.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequencia</strong> (<em>str</em>) – Sequência (por exemplo, DNA/proteína) onde será criado o índice.</p></li>
+<li><p><strong>k</strong> (<em>int</em><em>, </em><em>optional</em>) – Tamanho do k-mer. Tem de ser &gt; 0. Por omissão é 3.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dicionário (defaultdict) que mapeia cada k-mer
+para uma lista de posições onde ocorre.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>collections.defaultdict[list[int]]</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Se <cite>k</cite> for menor ou igual a 0.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">(</span><span class="n">novo_indice</span><span class="p">(</span><span class="s2">&quot;ATAT&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="go">{&#39;AT&#39;: [0, 2], &#39;TA&#39;: [1]}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-bioinf.filogenia">
+<span id="bioinf-filogenia"></span><h2>bioinf.filogenia<a class="headerlink" href="#module-bioinf.filogenia" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.filogenia.distancia">
+<span class="sig-prename descclassname"><span class="pre">bioinf.filogenia.</span></span><span class="sig-name descname"><span class="pre">distancia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/filogenia.html#distancia"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.filogenia.distancia" title="Link to this definition">¶</a></dt>
+<dd><p>Calcula a distância de edição (Levenshtein) entre duas strings.</p>
+<dl class="simple">
+<dt>Operações permitidas (custo 1 cada):</dt><dd><ol class="arabic simple">
+<li><p>Inserir um carácter</p></li>
+<li><p>Remover um carácter</p></li>
+<li><p>Substituir um carácter</p></li>
+</ol>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s1</strong> (<em>str</em>) – Primeira string (ex.: sequência de DNA). Pode ser vazia «».</p></li>
+<li><p><strong>s2</strong> (<em>str</em>) – Segunda string (ex.: sequência de DNA). Pode ser vazia «».</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Número mínimo de operações necessárias para transformar <cite>s1</cite> em <cite>s2</cite>.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Se <cite>s1</cite> ou <cite>s2</cite> não forem strings.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">distancia</span><span class="p">(</span><span class="s2">&quot;ATCG&quot;</span><span class="p">,</span> <span class="s2">&quot;ATCG&quot;</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distancia</span><span class="p">(</span><span class="s2">&quot;AAA&quot;</span><span class="p">,</span> <span class="s2">&quot;TTT&quot;</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distancia</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.filogenia.matriz_distancias">
+<span class="sig-prename descclassname"><span class="pre">bioinf.filogenia.</span></span><span class="sig-name descname"><span class="pre">matriz_distancias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lista_seqs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/filogenia.html#matriz_distancias"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.filogenia.matriz_distancias" title="Link to this definition">¶</a></dt>
+<dd><p>Constrói uma matriz de distâncias (simétrica) entre todas as sequências.</p>
+<p>Dada uma lista de sequências, calcula a distância de Levenshtein entre cada par
+e devolve uma matriz NxN onde:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>dist[i][j] = distância entre lista_seqs[i] e lista_seqs[j]</p></li>
+<li><p>dist é simétrica: dist[i][j] == dist[j][i]</p></li>
+<li><p>diagonal é zero: dist[i][i] == 0</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lista_seqs</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Lista de sequências (strings).</p>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p>Matriz NxN de distâncias.</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[list[int]]</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Se <cite>lista_seqs</cite> não for uma lista, ou se contiver elementos não-string.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matriz_distancias</span><span class="p">([</span><span class="s2">&quot;AAA&quot;</span><span class="p">,</span> <span class="s2">&quot;AAT&quot;</span><span class="p">,</span> <span class="s2">&quot;TTT&quot;</span><span class="p">])</span>
+<span class="go">[[0, 1, 3],</span>
+<span class="go"> [1, 0, 2],</span>
+<span class="go"> [3, 2, 0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioinf.filogenia.upgma">
+<span class="sig-prename descclassname"><span class="pre">bioinf.filogenia.</span></span><span class="sig-name descname"><span class="pre">upgma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distancias</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioinf/filogenia.html#upgma"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#bioinf.filogenia.upgma" title="Link to this definition">¶</a></dt>
+<dd><p>Executa o algoritmo UPGMA e devolve as junções efetuadas.</p>
+<p>Passos do algoritmo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">)</span> <span class="n">Começa</span> <span class="n">com</span> <span class="n">um</span> <span class="n">cluster</span> <span class="n">por</span> <span class="n">sequência</span> <span class="p">(</span><span class="n">cada</span> <span class="n">label</span> <span class="n">é</span> <span class="n">um</span> <span class="n">cluster</span><span class="p">)</span><span class="o">.</span>
+<span class="mi">2</span><span class="p">)</span> <span class="n">Procura</span> <span class="n">o</span> <span class="n">par</span> <span class="n">de</span> <span class="n">clusters</span> <span class="n">com</span> <span class="n">menor</span> <span class="n">distância</span><span class="o">.</span>
+<span class="mi">3</span><span class="p">)</span> <span class="n">Regista</span> <span class="n">a</span> <span class="n">junção</span> <span class="p">(</span><span class="n">label1</span><span class="p">,</span> <span class="n">label2</span><span class="p">,</span> <span class="n">distância</span><span class="p">)</span><span class="o">.</span>
+<span class="mi">4</span><span class="p">)</span> <span class="n">Junta</span> <span class="n">clusters</span> <span class="n">e</span> <span class="n">atualiza</span> <span class="k">as</span> <span class="n">distâncias</span> <span class="n">usando</span> <span class="n">média</span> <span class="n">aritmética</span> <span class="n">simples</span><span class="o">.</span>
+<span class="mi">5</span><span class="p">)</span> <span class="n">Repete</span> <span class="n">até</span> <span class="n">restar</span> <span class="n">um</span> <span class="n">único</span> <span class="n">cluster</span><span class="o">.</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>distancias</strong> (<em>list</em><em>[</em><em>list</em><em>[</em><em>int</em><em>|</em><em>float</em><em>]</em><em>]</em>) – Matriz NxN de distâncias. distancias[i][j] é a distância entre labels[i] e labels[j].</p></li>
+<li><p><strong>labels</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Lista de labels (tamanho N), na mesma ordem das linhas/colunas da matriz.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorno<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Lista de ligações/junções. Cada elemento é:</dt><dd><p>(labelA, labelB, distancia)</p>
+</dd>
+</dl>
+<p>Existem exatamente N-1 junções para N sequências.</p>
+</p>
+</dd>
+<dt class="field-odd">Tipo de retorno<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[tuple[str, str, float]]</p>
+</dd>
+<dt class="field-even">Levanta<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TypeError</strong> – Se <cite>labels</cite> não for list[str], ou <cite>distancias</cite> não for matriz numérica.</p></li>
+<li><p><strong>ValueError</strong> – Se N &lt; 2, ou se <cite>distancias</cite> não for NxN.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seqs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AAA&quot;</span><span class="p">,</span> <span class="s2">&quot;AAT&quot;</span><span class="p">,</span> <span class="s2">&quot;TTT&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">matriz_distancias</span><span class="p">(</span><span class="n">seqs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lig</span> <span class="o">=</span> <span class="n">upgma</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">seqs</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">lig</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">portefolio_AASB</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Ir" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navegação</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-bioinf.sequencias">bioinf.sequencias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-bioinf.motifs">bioinf.motifs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-bioinf.alinhamento">bioinf.alinhamento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-bioinf.blast">bioinf.blast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-bioinf.filogenia">bioinf.filogenia</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="capítulo anterior">Bioinf documentation</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, grupo_8.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
