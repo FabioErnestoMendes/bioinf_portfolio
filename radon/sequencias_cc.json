@@ -1,0 +1,27 @@
+[
+    {
+        "name": "is_dna",
+        "complexity": 2,
+        "rank": "A"
+    },
+    {
+        "name": "dna_counter",
+        "complexity": 1,
+        "rank": "A"
+    },
+    {
+        "name": "reverse_complement",
+        "complexity": 2,
+        "rank": "A"
+    },
+    {
+        "name": "dna_to_rna",
+        "complexity": 2,
+        "rank": "A"
+    },
+    {
+        "name": "identificar_sequencia",
+        "complexity": 5,
+        "rank": "A"
+    }
+]

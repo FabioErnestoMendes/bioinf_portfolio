@@ -1,0 +1,62 @@
+[
+    {
+        "name": "distancia",
+        "complexity": 9,
+        "rank": "B"
+    },
+    {
+        "name": "matriz_distancias",
+        "complexity": 7,
+        "rank": "B"
+    },
+    {
+        "name": "_validar_lista",
+        "complexity": 2,
+        "rank": "A"
+    },
+    {
+        "name": "_validar_labels",
+        "complexity": 4,
+        "rank": "A"
+    },
+    {
+        "name": "_validar_matriz_lista",
+        "complexity": 3,
+        "rank": "A"
+    },
+    {
+        "name": "_validar_matriz_quadrada",
+        "complexity": 4,
+        "rank": "A"
+    },
+    {
+        "name": "_validar_matriz_numerica",
+        "complexity": 4,
+        "rank": "A"
+    },
+    {
+        "name": "_encontrar_par_mais_proximo",
+        "complexity": 4,
+        "rank": "A"
+    },
+    {
+        "name": "_nova_linha_media",
+        "complexity": 4,
+        "rank": "A"
+    },
+    {
+        "name": "_remover_indices",
+        "complexity": 4,
+        "rank": "A"
+    },
+    {
+        "name": "_adicionar_cluster",
+        "complexity": 2,
+        "rank": "A"
+    },
+    {
+        "name": "upgma",
+        "complexity": 3,
+        "rank": "A"
+    }
+]

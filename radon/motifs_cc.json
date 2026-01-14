@@ -1,0 +1,62 @@
+[
+    {
+        "name": "_clean_seq",
+        "complexity": 2,
+        "rank": "A"
+    },
+    {
+        "name": "_find_overlapping_positions",
+        "complexity": 2,
+        "rank": "A"
+    },
+    {
+        "name": "iupac_to_regex",
+        "complexity": 4,
+        "rank": "A"
+    },
+    {
+        "name": "find_overlapping",
+        "complexity": 1,
+        "rank": "A"
+    },
+    {
+        "name": "prosite_to_regex",
+        "complexity": 3,
+        "rank": "A"
+    },
+    {
+        "name": "find_prosite",
+        "complexity": 1,
+        "rank": "A"
+    },
+    {
+        "name": "digest_dna",
+        "complexity": 7,
+        "rank": "B"
+    },
+    {
+        "name": "_validate_kmers",
+        "complexity": 9,
+        "rank": "B"
+    },
+    {
+        "name": "build_pwm",
+        "complexity": 4,
+        "rank": "A"
+    },
+    {
+        "name": "pssm_from_pwm",
+        "complexity": 4,
+        "rank": "A"
+    },
+    {
+        "name": "score_kmer",
+        "complexity": 3,
+        "rank": "A"
+    },
+    {
+        "name": "best_subsequence",
+        "complexity": 5,
+        "rank": "A"
+    }
+]

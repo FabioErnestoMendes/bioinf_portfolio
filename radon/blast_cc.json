@@ -1,0 +1,22 @@
+[
+    {
+        "name": "novo_indice",
+        "complexity": 3,
+        "rank": "A"
+    },
+    {
+        "name": "busca_pares",
+        "complexity": 3,
+        "rank": "A"
+    },
+    {
+        "name": "estender_alem",
+        "complexity": 7,
+        "rank": "B"
+    },
+    {
+        "name": "alinhamento_pro",
+        "complexity": 7,
+        "rank": "B"
+    }
+]

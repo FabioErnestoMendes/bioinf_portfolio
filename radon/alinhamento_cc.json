@@ -1,0 +1,102 @@
+[
+    {
+        "name": "identificar_sequencia",
+        "complexity": 4,
+        "rank": "A"
+    },
+    {
+        "name": "matriz_de_zeros",
+        "complexity": 3,
+        "rank": "A"
+    },
+    {
+        "name": "janela_match",
+        "complexity": 3,
+        "rank": "A"
+    },
+    {
+        "name": "dot_plot_janela",
+        "complexity": 4,
+        "rank": "A"
+    },
+    {
+        "name": "imprimir_dot_plot",
+        "complexity": 7,
+        "rank": "B"
+    },
+    {
+        "name": "matriz_substitui\u00e7\u00e3o_prote\u00edna",
+        "complexity": 1,
+        "rank": "A"
+    },
+    {
+        "name": "matriz_substitui\u00e7\u00e3o_dna",
+        "complexity": 1,
+        "rank": "A"
+    },
+    {
+        "name": "primeira_linha_e_coluna",
+        "complexity": 5,
+        "rank": "A"
+    },
+    {
+        "name": "escolha_de_matriz",
+        "complexity": 5,
+        "rank": "A"
+    },
+    {
+        "name": "melhor_movimento",
+        "complexity": 3,
+        "rank": "A"
+    },
+    {
+        "name": "montar_grid",
+        "complexity": 2,
+        "rank": "A"
+    },
+    {
+        "name": "imprimir_grid",
+        "complexity": 3,
+        "rank": "A"
+    },
+    {
+        "name": "needleman_wunsch",
+        "complexity": 8,
+        "rank": "B"
+    },
+    {
+        "name": "smith_waterman",
+        "complexity": 9,
+        "rank": "B"
+    },
+    {
+        "name": "reconstruir_alinhamento",
+        "complexity": 8,
+        "rank": "B"
+    },
+    {
+        "name": "consenso",
+        "complexity": 4,
+        "rank": "A"
+    },
+    {
+        "name": "melhor_movimento",
+        "complexity": 3,
+        "rank": "A"
+    },
+    {
+        "name": "alinhar_par",
+        "complexity": 9,
+        "rank": "B"
+    },
+    {
+        "name": "alinhar_consenso",
+        "complexity": 5,
+        "rank": "A"
+    },
+    {
+        "name": "alinhamento_progressivo",
+        "complexity": 2,
+        "rank": "A"
+    }
+]
